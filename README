@@ -48,7 +48,7 @@ write.csv(student_record, "student_record_3.csv", row.names = FALSE)
 Function	          Purpose
 read.csv()	        To read CSV files into R data frames.
 head()	            To view the first few rows of a dataset.
-subset()	          To filter records based on specific conditions.
+subset()	        To filter records based on specific conditions.
 write.csv()	        To export data frames into CSV files.
 dplyr::inner_join()	To combine multiple datasets using a common key.
 
