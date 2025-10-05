@@ -1,0 +1,77 @@
+🎓 Student Management System – R Case Study
+📘 Project Overview
+
+This project simulates a Student Management System designed for a university to improve administrative efficiency and student experience.
+It demonstrates how a data analyst can integrate multiple CSV datasets — containing student personal details, academic performance, and extracurricular activities — into a single cohesive dataset for centralized analysis and reporting.
+
+All operations are performed using R, including reading, merging, filtering, and writing data files.
+
+🎯 Business Requirement
+The university aims to:
+Centralize data from multiple CSV files into one dataset.
+Generate student reports for academic and extracurricular performance.
+Improve data accessibility for administrative and academic planning.
+
+🧾 Dataset Details
+File Name	Description
+student_personal_info.csv	              Contains basic personal and departmental details of students.
+student_academic_performance.csv	      Includes semester GPA and attendance records.
+student_extracurricular_activities.csv	Contains details about clubs and participation levels.
+student_management_combined.csv	        The final integrated dataset created using R.
+
+Each file uses Student_ID as the common key to merge the data.
+
+🧠 Steps Performed in R
+1️⃣ Read CSV Files
+Used read.csv() to import data into R.
+personal_info <- read.csv(personal_info)
+academic_performance <- read.csv(academic_performance)
+activities <- read.csv(activities)
+
+2️⃣ Combine Datasets
+Merged all datasets using the dplyr package with inner joins:
+library(dplyr)
+student_data <- personal_info %>%
+  inner_join(academic_performance, by = "Student_ID") %>%
+  inner_join(activities, by = "Student_ID")
+
+3️⃣ Write Combined Data
+Saved the integrated dataset to a new file:
+write.csv(student_data, "student_management_combined.csv", row.names = FALSE)
+
+4️⃣ Extract Specific Student Record
+Filtered data for a particular student (e.g., Student_ID = 3):
+student_record <- subset(student_data, Student_ID == 3)
+write.csv(student_record, "student_record_3.csv", row.names = FALSE)
+
+⚙️ Functions Used
+Function	          Purpose
+read.csv()	        To read CSV files into R data frames.
+head()	            To view the first few rows of a dataset.
+subset()	          To filter records based on specific conditions.
+write.csv()	        To export data frames into CSV files.
+dplyr::inner_join()	To combine multiple datasets using a common key.
+
+⚠️ Challenges & Considerations
+Ensuring consistent keys (Student_ID) across all datasets.
+Handling missing or inconsistent data during joins.
+Managing file paths when reading/writing multiple CSVs.
+Verifying record integrity after merging using nrow() or distinct().
+
+💡 Key Learning Outcomes
+
+✅ Data integration using R and dplyr
+✅ Filtering and exporting targeted data
+✅ Understanding of data management for academic systems
+✅ Building a reproducible workflow for real-world data analysis
+
+🛠️ Tools Used
+R Language
+RStudio IDE
+dplyr package for data manipulation
+CSV files as data source
+
+👨‍💻 Author
+Kalpesh Nardekar
+📧 Email: [kalpeshnardekar@outlook.com]
+
